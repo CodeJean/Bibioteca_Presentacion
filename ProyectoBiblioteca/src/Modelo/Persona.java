@@ -8,11 +8,19 @@ package Modelo;
  * @author Rosales Jhonatan
  */
 public abstract class Persona {
-    private String code;
-    private String nombre;
-    private String apellido;
-    private String dni;
+    String code;
+    String nombre;
+    String apellido;
+    String dni;
 
+    public Persona(String code, String nombre, String apellido, String dni) {
+        this.code = code;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dni = dni;
+    }
+
+    
     public String getCode() {
         return code;
     }
