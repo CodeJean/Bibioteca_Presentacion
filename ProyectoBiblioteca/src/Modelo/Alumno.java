@@ -12,11 +12,18 @@ public class Alumno extends Persona{
     private int nro;
     private String carrera;
     private String facu;
-
+    
+    
     public Alumno(String cod_alu, int nro, String carrera, String facu, String code, String nombre, String apellido, String dni) {
         super(code, nombre, apellido, dni);
         this.cod_alu = cod_alu;
         this.nro = nro;
+        this.carrera = carrera;
+        this.facu = facu;
+    }
+    
+    public Alumno(String nombre, String apellido, String dni,String carrera, String facu) {
+        super(nombre, apellido, dni);
         this.carrera = carrera;
         this.facu = facu;
     }

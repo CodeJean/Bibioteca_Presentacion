@@ -29,9 +29,60 @@ public class Negocio {
         }catch(Exception ex){
             ex.printStackTrace();
         }
-        System.out.println(sql);
+        //System.out.println(sql);
         return lis;
-    }    
+    }
+//Listado docentes
+public List<Docente> ListDocente(){
+        List<Docente> lis=new ArrayList();
+        //String sql="select * from Alumno";
+        String sql="select *\n" +
+        "from Docente d, Persona p\n" +
+        "where d.cod_doce=p.code";
+        try{
+        PreparedStatement st=Conexion.Conecta()
+                .prepareStatement(sql);
+        //llevar la consulta a memoria
+        ResultSet rs=st.executeQuery();
+        //leer filaxfila
+        while(rs.next()){
+           Docente d=new Docente(rs.getString(1),
+           rs.getInt(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7));
+           lis.add(d);
+        }
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        //System.out.println(sql);
+        return lis;
+    }
+
+// grabar alumno
+public void Graba(Alumno a){
+    String sql="{call spadiAlu(?,?,?,?,?)}";
+    
+    //String coda="";
+    try{ //preparar una clase para ejcutar instrucc
+        //sql
+     CallableStatement st=Conexion.Conecta().prepareCall(sql);
+     //relacionar cada parametro con ep
+     st.setString(1, a.getNombre());
+     st.setString(2, a.getApellido());
+     st.setString(3, a.getDni());
+     st.setString(4, a.getCarrera());
+     st.setString(5, a.getFacu());
+     ResultSet rs=st.executeQuery();
+     rs.next();
+        System.out.println(sql);
+     //coda=rs.getString(1);
+     //coda="El Registro se realizo con exito";
+     //st.executeUpdate();
+    }catch(Exception ex){
+        
+      ex.printStackTrace();
+    }
+     
+}
     
 
  
