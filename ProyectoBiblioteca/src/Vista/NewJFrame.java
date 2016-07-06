@@ -36,7 +36,7 @@ public class NewJFrame extends javax.swing.JFrame {
         txtape = new javax.swing.JTextField();
         txtdni = new javax.swing.JTextField();
         cbcarrera = new javax.swing.JComboBox<>();
-        lbcarrera = new javax.swing.JLabel();
+        lbfacu = new javax.swing.JLabel();
         txtmsg = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -45,9 +45,9 @@ public class NewJFrame extends javax.swing.JFrame {
         tabalumno = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btngraba = new javax.swing.JButton();
+        btnmodifica = new javax.swing.JButton();
+        btnelimina = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -71,7 +71,7 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
 
-        lbcarrera.setText("*************");
+        lbfacu.setText("*************");
 
         txtmsg.setFont(new java.awt.Font("Copperplate Gothic Light", 0, 12)); // NOI18N
         txtmsg.setForeground(new java.awt.Color(0, 153, 51));
@@ -83,29 +83,25 @@ public class NewJFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel5)
-                                .addGap(45, 45, 45))
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(34, 34, 34)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel1)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel3)
-                                            .addComponent(jLabel2)
-                                            .addComponent(jLabel4))
-                                        .addGap(4, 4, 4)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel3)
+                                        .addComponent(jLabel2)
+                                        .addComponent(jLabel4))
+                                    .addComponent(jLabel5))
+                                .addGap(4, 4, 4)))
+                        .addGap(21, 21, 21)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(txtdni, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
                                 .addComponent(txtape)
                                 .addComponent(txtnom))
                             .addComponent(cbcarrera, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbcarrera))
+                            .addComponent(lbfacu))
                         .addGap(0, 35, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
@@ -133,7 +129,7 @@ public class NewJFrame extends javax.swing.JFrame {
                     .addComponent(cbcarrera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbcarrera)
+                    .addComponent(lbfacu)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtmsg, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
@@ -185,6 +181,11 @@ public class NewJFrame extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tabalumno.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tabalumnoMousePressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabalumno);
         if (tabalumno.getColumnModel().getColumnCount() > 0) {
             tabalumno.getColumnModel().getColumn(0).setResizable(false);
@@ -202,16 +203,16 @@ public class NewJFrame extends javax.swing.JFrame {
 
         jButton1.setText("NUEVO");
 
-        jButton2.setText("GRABAR");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btngraba.setText("GRABAR");
+        btngraba.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btngrabaActionPerformed(evt);
             }
         });
 
-        jButton3.setText("MODIFICAR");
+        btnmodifica.setText("MODIFICAR");
 
-        jButton4.setText("ELIMINAR");
+        btnelimina.setText("ELIMINAR");
 
         jButton5.setText("LISTAR");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -228,11 +229,11 @@ public class NewJFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jButton1)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(btngraba)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(btnmodifica)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4)
+                .addComponent(btnelimina)
                 .addGap(18, 18, 18)
                 .addComponent(jButton5)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -243,9 +244,9 @@ public class NewJFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
+                    .addComponent(btngraba)
+                    .addComponent(btnmodifica)
+                    .addComponent(btnelimina)
                     .addComponent(jButton5))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -302,16 +303,16 @@ public class NewJFrame extends javax.swing.JFrame {
     private void cbcarreraItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbcarreraItemStateChanged
         // Evento Elige la Facultad segun carrera:
         int cb = cbcarrera.getSelectedIndex();
-        if(cb>0 && cb<=10) lbcarrera.setText("INGENIERIA");
-        if(cb>10 && cb<=14) lbcarrera.setText("GESTIÓN Y NEGOCIOS"); 
-        if(cb>14) lbcarrera.setText("HUMANIDADES"); 
+        if(cb>0 && cb<=10) lbfacu.setText("INGENIERIA");
+        if(cb>10 && cb<=14) lbfacu.setText("GESTIÓN Y NEGOCIOS"); 
+        if(cb>14) lbfacu.setText("HUMANIDADES"); 
         
     }//GEN-LAST:event_cbcarreraItemStateChanged
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btngrabaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngrabaActionPerformed
         // Boton Grabar alumno:
         // Grabar:        
-        Alumno a=new Alumno(txtnom.getText(),txtape.getText(),txtdni.getText(), (String) cbcarrera.getSelectedItem(),lbcarrera.getText());
+        Alumno a=new Alumno(txtnom.getText(),txtape.getText(),txtdni.getText(), (String) cbcarrera.getSelectedItem(),lbfacu.getText());
         txtmsg.setText(obj.Graba(a));
         try{
             
@@ -323,7 +324,7 @@ public class NewJFrame extends javax.swing.JFrame {
         x.getCarrera(),x.getFacu()});
         }    
         }catch(Exception ex){}
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btngrabaActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         
@@ -340,6 +341,32 @@ public class NewJFrame extends javax.swing.JFrame {
         }    
         }catch(Exception ex){}    
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void tabalumnoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabalumnoMousePressed
+        // Evento precionar una fila de la tabla:
+        //Evento MousePresset del JTable
+        int fila = this.tabalumno.getSelectedRow();        
+        //limpiar();
+        
+        btngraba.setEnabled(false);
+        btnelimina.setEnabled(true);
+        btnmodifica.setEnabled(true);
+        
+        try {
+            String codAlum = tabalumno.getValueAt(fila, 0).toString(); //Traer Codigo
+            
+            this.txtnom.setText(tabalumno.getValueAt(fila, 1).toString());
+            this.txtape.setText(tabalumno.getValueAt(fila, 2).toString());
+            this.txtdni.setText(tabalumno.getValueAt(fila, 3).toString());
+            this.cbcarrera.setSelectedItem(tabalumno.getValueAt(fila, 4).toString());
+            //this.TXTAPELLIDOM.setText(tabalumno.getValueAt(fila, 4).toString());
+            this.lbfacu.setText(tabalumno.getValueAt(fila, 5).toString());
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "OCURRIO UN ERROR AL MOMENTO DE SELECCIO EL DOCENTE", "ADVERTENCIA", JOptionPane.QUESTION_MESSAGE);
+            
+        }
+    }//GEN-LAST:event_tabalumnoMousePressed
 
     /**
      * @param args the command line arguments
@@ -377,11 +404,11 @@ public class NewJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnelimina;
+    private javax.swing.JButton btngraba;
+    private javax.swing.JButton btnmodifica;
     private javax.swing.JComboBox<String> cbcarrera;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -394,7 +421,7 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lbcarrera;
+    private javax.swing.JLabel lbfacu;
     private javax.swing.JTable tabalumno;
     private javax.swing.JTextField txtape;
     private javax.swing.JTextField txtdni;
