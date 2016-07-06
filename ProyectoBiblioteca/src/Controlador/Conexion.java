@@ -4,7 +4,8 @@ public class Conexion {
 public static Connection Conecta(){
    
      String Driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-     String URL = "jdbc:sqlserver://JEAN:1433;databaseName=bdBiblioteca";
+     // String URL = "jdbc:sqlserver://JEAN:1433;databaseName=bdBiblioteca"; // URL Jean
+     String URL = "jdbc:sqlserver://TELEFONICA:1433;databaseName=bdBiblioteca"; // URL Jhonatan
      String user = "sa";
      String password = "alumno";
 

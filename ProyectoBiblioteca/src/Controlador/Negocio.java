@@ -58,12 +58,13 @@ public List<Docente> ListDocente(){
     }
 
 // grabar alumno
-public void Graba(Alumno a){
+public String Graba(Alumno a){
     String sql="{call spadiAlu(?,?,?,?,?)}";
     
     //String coda="";
     try{ //preparar una clase para ejcutar instrucc
         //sql
+        
      CallableStatement st=Conexion.Conecta().prepareCall(sql);
      //relacionar cada parametro con ep
      st.setString(1, a.getNombre());
@@ -71,17 +72,22 @@ public void Graba(Alumno a){
      st.setString(3, a.getDni());
      st.setString(4, a.getCarrera());
      st.setString(5, a.getFacu());
-     ResultSet rs=st.executeQuery();
-     rs.next();
-        System.out.println(sql);
+     ///////// Probando //////////
+    //ResultSet rs=st.executeQuery();
+     //rs.next();       
+     st.execute();    
+     final ResultSet rs = st.getResultSet();
+     
+     //ResultSet rs=st.executeQuery();
+     //rs.next();        
+     
      //coda=rs.getString(1);
      //coda="El Registro se realizo con exito";
      //st.executeUpdate();
-    }catch(Exception ex){
-        
+    }catch(Exception ex){        
       ex.printStackTrace();
     }
-     
+    return "EL REGISTRO SE REALIZO CON EXITO";
 }
     
 

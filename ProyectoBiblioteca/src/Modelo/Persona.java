@@ -7,7 +7,7 @@ package Modelo;
  *
  * @author Rosales Jhonatan
  */
-public abstract class Persona {
+public class Persona {
     String code;
     String nombre;
     String apellido;
