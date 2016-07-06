@@ -306,6 +306,18 @@ public class NewJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void listar_alumno(){
+    try{            
+        DefaultTableModel dt=(DefaultTableModel)tabalumno.getModel();              
+        dt.setRowCount(0);
+        
+        for(Alumno x:obj.ListadoAlumno()){
+        dt.addRow(new Object[]{x.getCod_alu(),x.getNombre(),x.getApellido(),x.getDni(),
+        x.getCarrera(),x.getFacu()});
+        }    
+        }catch(Exception ex){}    
+    }
+    
     private void cbcarreraItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbcarreraItemStateChanged
         // Evento Elige la Facultad segun carrera:
         int cb = cbcarrera.getSelectedIndex();
@@ -320,32 +332,14 @@ public class NewJFrame extends javax.swing.JFrame {
         // Grabar:        
         Alumno a=new Alumno(txtnom.getText(),txtape.getText(),txtdni.getText(), (String) cbcarrera.getSelectedItem(),lbfacu.getText());
         txtmsg.setText(obj.Graba(a));
-        try{
-            
-        DefaultTableModel dt=(DefaultTableModel)tabalumno.getModel();              
-        dt.setRowCount(0);
-        
-        for(Alumno x:obj.ListadoAlumno()){
-        dt.addRow(new Object[]{x.getCod_alu(),x.getNombre(),x.getApellido(),x.getDni(),
-        x.getCarrera(),x.getFacu()});
-        }    
-        }catch(Exception ex){}
+        //Lista alumno
+        listar_alumno();
     }//GEN-LAST:event_btngrabaActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         
         // Listar Alumnos 
-        try{
-            
-        DefaultTableModel dt=(DefaultTableModel)tabalumno.getModel();
-        
-        dt.setRowCount(0);
-        
-        for(Alumno x:obj.ListadoAlumno()){
-        dt.addRow(new Object[]{x.getCod_alu(),x.getNombre(),x.getApellido(),x.getDni(),
-        x.getCarrera(),x.getFacu()});
-        }    
-        }catch(Exception ex){}    
+        listar_alumno();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void tabalumnoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabalumnoMousePressed
@@ -378,6 +372,7 @@ public class NewJFrame extends javax.swing.JFrame {
         // BTN MODIFICAR:        
         Alumno a=new Alumno(codAlum,txtnom.getText(),txtape.getText(),txtdni.getText(), (String) cbcarrera.getSelectedItem(),lbfacu.getText());
         txtmsg.setText(obj.UpdateAlu(a));
+        listar_alumno();
     }//GEN-LAST:event_btnmodificaActionPerformed
 
     /**
