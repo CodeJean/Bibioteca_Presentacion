@@ -32,6 +32,7 @@ public class Negocio {
         //System.out.println(sql);
         return lis;
     }
+    
 //Listado docentes
 public List<Docente> ListDocente(){
         List<Docente> lis=new ArrayList();
@@ -56,17 +57,15 @@ public List<Docente> ListDocente(){
         //System.out.println(sql);
         return lis;
     }
-
 // grabar alumno
 public String Graba(Alumno a){
     String sql="{call spadiAlu(?,?,?,?,?)}";
-    
-    //String coda="";
+
     try{ //preparar una clase para ejcutar instrucc
         //sql
         
      CallableStatement st=Conexion.Conecta().prepareCall(sql);
-     //relacionar cada parametro con ep
+     //Relacionar parametos con Procedimiento almacenado
      st.setString(1, a.getNombre());
      st.setString(2, a.getApellido());
      st.setString(3, a.getDni());
@@ -78,16 +77,31 @@ public String Graba(Alumno a){
      st.execute();    
      final ResultSet rs = st.getResultSet();
      
-     //ResultSet rs=st.executeQuery();
-     //rs.next();        
-     
-     //coda=rs.getString(1);
-     //coda="El Registro se realizo con exito";
-     //st.executeUpdate();
     }catch(Exception ex){        
       ex.printStackTrace();
     }
     return "EL REGISTRO SE REALIZO CON EXITO";
+}
+//Actualizar Alumno
+public String UpdateAlu(Alumno a){
+    String sql="{call spaUpdateAlu(?,?,?,?,?,?)}";
+    try{ //preparar una clase para ejcutar instrucc     
+     CallableStatement st=Conexion.Conecta().prepareCall(sql);
+     //Relacionar parametos con Procedimiento almacenado
+     st.setString(1, a.getCod_alu());
+     st.setString(2, a.getNombre());
+     st.setString(3, a.getApellido());
+     st.setString(4, a.getDni());
+     st.setString(5, a.getCarrera());
+     st.setString(6, a.getFacu());
+     ///////// Ejecuta Update //////////    
+     st.execute();    
+     final ResultSet rs = st.getResultSet();
+     
+    }catch(Exception ex){        
+      ex.printStackTrace();
+    }
+    return "LA ACTUALIZACION SE REALIZO CON EXITO";
 }
     
 

@@ -21,6 +21,13 @@ public class Alumno extends Persona{
         this.carrera = carrera;
         this.facu = facu;
     }
+
+    public Alumno(String cod_alu,String nombre, String apellido, String dni, String carrera, String facu) {
+        super(nombre, apellido, dni);
+        this.cod_alu = cod_alu;
+        this.carrera = carrera;
+        this.facu = facu;
+    }
     
     public Alumno(String nombre, String apellido, String dni,String carrera, String facu) {
         super(nombre, apellido, dni);

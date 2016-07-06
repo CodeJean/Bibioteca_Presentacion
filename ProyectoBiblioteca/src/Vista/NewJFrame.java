@@ -11,7 +11,8 @@ import javax.swing.table.DefaultTableModel;
 public class NewJFrame extends javax.swing.JFrame {
     
      Negocio obj=new Negocio();
-     
+     String codAlum;
+
     public NewJFrame() {
         initComponents();
    
@@ -211,6 +212,11 @@ public class NewJFrame extends javax.swing.JFrame {
         });
 
         btnmodifica.setText("MODIFICAR");
+        btnmodifica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnmodificaActionPerformed(evt);
+            }
+        });
 
         btnelimina.setText("ELIMINAR");
 
@@ -353,7 +359,7 @@ public class NewJFrame extends javax.swing.JFrame {
         btnmodifica.setEnabled(true);
         
         try {
-            String codAlum = tabalumno.getValueAt(fila, 0).toString(); //Traer Codigo
+            codAlum = tabalumno.getValueAt(fila, 0).toString(); //Traer Codigo
             
             this.txtnom.setText(tabalumno.getValueAt(fila, 1).toString());
             this.txtape.setText(tabalumno.getValueAt(fila, 2).toString());
@@ -363,10 +369,16 @@ public class NewJFrame extends javax.swing.JFrame {
             this.lbfacu.setText(tabalumno.getValueAt(fila, 5).toString());
             
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "OCURRIO UN ERROR AL MOMENTO DE SELECCIO EL DOCENTE", "ADVERTENCIA", JOptionPane.QUESTION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "OCURRIO UN ERROR AL MOMENTO DE SELECCION DEL ALUMNO", "ADVERTENCIA", JOptionPane.QUESTION_MESSAGE);
             
         }
     }//GEN-LAST:event_tabalumnoMousePressed
+
+    private void btnmodificaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificaActionPerformed
+        // BTN MODIFICAR:        
+        Alumno a=new Alumno(codAlum,txtnom.getText(),txtape.getText(),txtdni.getText(), (String) cbcarrera.getSelectedItem(),lbfacu.getText());
+        txtmsg.setText(obj.UpdateAlu(a));
+    }//GEN-LAST:event_btnmodificaActionPerformed
 
     /**
      * @param args the command line arguments
