@@ -6,9 +6,27 @@ import java.sql.*;
 import Modelo.*;
 import java.util.*;
 public class Negocio {
+// Buscar existencia de foto
+    public String ExisteFoto(String codAlum){
+    String sql="{call fotoexiste(?)}";
+    String resp="";
+    try{ //preparar una clase para ejcutar instrucc
+        //sql
+     CallableStatement st=Conexion.Conecta().prepareCall(sql);
+     //relacionar cada parametro con ep
+     st.setString(1, codAlum);
+     ResultSet rs=st.executeQuery();
+     rs.next();
+     resp=rs.getString(1);
+     //st.executeUpdate();
+    }catch(Exception ex){
+      ex.printStackTrace();
+    }
+        return resp;
+}  
+
     
-//listado de Alumnos/Biblioteca colocar en un arraylist
-        
+//listado de Alumnos/Biblioteca colocar en un arraylist        
     public List<Alumno> ListadoAlumno(){
         List<Alumno> lis=new ArrayList();
         //String sql="select * from Alumno";
@@ -118,9 +136,9 @@ public String DeleteAlu(Alumno a){
       ex.printStackTrace();
     }
     return "SE ELIMINO REGISTRO CON EXITO";
-}    
+}  
 
- 
+   
  
 }   
 

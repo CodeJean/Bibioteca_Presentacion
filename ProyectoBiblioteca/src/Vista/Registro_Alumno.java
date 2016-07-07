@@ -2,18 +2,21 @@
 package Vista;
 import Modelo.*;
 import Controlador.Negocio;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Jhonatan Rosales
  */
-public class NewJFrame extends javax.swing.JFrame {
+public class Registro_Alumno extends javax.swing.JFrame {
     
      Negocio obj=new Negocio();
+     fotoclass f = new fotoclass(); //Objeto de la clase fotoclass
      String codAlum;
 
-    public NewJFrame() {
+    public Registro_Alumno() {
         initComponents();
    
     }
@@ -41,6 +44,7 @@ public class NewJFrame extends javax.swing.JFrame {
         txtmsg = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        txtfoto = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabalumno = new javax.swing.JTable();
@@ -133,7 +137,7 @@ public class NewJFrame extends javax.swing.JFrame {
                     .addComponent(lbfacu)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtmsg, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                .addComponent(txtmsg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(5, 5, 5))
         );
 
@@ -141,15 +145,23 @@ public class NewJFrame extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("FOTOGRAFIA"));
 
+        txtfoto.setPreferredSize(new java.awt.Dimension(159, 164));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 150, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(txtfoto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtfoto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -274,11 +286,6 @@ public class NewJFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 571, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(282, 282, 282)
@@ -288,10 +295,14 @@ public class NewJFrame extends javax.swing.JFrame {
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(12, 12, 12))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 571, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
+                .addGap(55, 55, 55)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -304,18 +315,21 @@ public class NewJFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /// Metodos Generales ////
     private void listar_alumno(){
     try{            
         DefaultTableModel dt=(DefaultTableModel)tabalumno.getModel();              
@@ -327,6 +341,7 @@ public class NewJFrame extends javax.swing.JFrame {
         }    
         }catch(Exception ex){}    
     }
+    
     private void limpiar(){
         btngraba.setEnabled(true);
         txtnom.setText("");
@@ -336,6 +351,26 @@ public class NewJFrame extends javax.swing.JFrame {
         lbfacu.setText("");
     }
     
+    //METODO PARA CARGAR LA FOTO DEL DOCENTE
+    public void cargarfoto(String DNI) {
+        Image dtCat = f.recuperarfotos(DNI);
+        ImageIcon icon = new ImageIcon(dtCat);
+        //Se extrae la imagen del icono
+        Image img = icon.getImage();
+        //Se modifica su tamaño
+        Image newimg = img.getScaledInstance(155, 180, java.awt.Image.SCALE_SMOOTH);
+        //SE GENERA EL IMAGE ICON CON LA NUEVA IMAGEN
+        ImageIcon newIcon = new ImageIcon(newimg);
+        //Se coloca el nuevo icono modificado
+        if (newIcon == null) {
+            JOptionPane.showMessageDialog(null, "no tiene imagen","ADVERTENCIA",JOptionPane.ERROR);
+        } else {
+            txtfoto.setIcon(newIcon);//Seteamos la foto el el label llamado jLFoto del frame HISTORIALASISITENCIA
+            txtfoto.setSize(159, 164);//Seteamos el tamaño para la foto  
+        }
+    }
+    
+    //// Fin Metodos generales ////////////
     private void cbcarreraItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbcarreraItemStateChanged
         // Evento Elige la Facultad segun carrera:
         int cb = cbcarrera.getSelectedIndex();
@@ -375,7 +410,17 @@ public class NewJFrame extends javax.swing.JFrame {
             this.txtape.setText(tabalumno.getValueAt(fila, 2).toString());
             this.txtdni.setText(tabalumno.getValueAt(fila, 3).toString());
             this.cbcarrera.setSelectedItem(tabalumno.getValueAt(fila, 4).toString());         
-            this.lbfacu.setText(tabalumno.getValueAt(fila, 5).toString());
+            this.lbfacu.setText(tabalumno.getValueAt(fila, 5).toString());  
+            // Procedimiento para consultar si existe foto
+            String RESPUES = obj.ExisteFoto(codAlum);
+            // 0= no existe   1= existe
+            if (RESPUES.equals("0")) {
+                txtfoto.setIcon(new ImageIcon(getClass().getResource("/Iconos/sin_rostro.jpg")));
+                txtfoto.setSize(159, 164);
+            } else {
+                cargarfoto(codAlum);;//llama al metodo para cargar la foto en el table y le invia el parametro DNI
+            }
+            
             
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "OCURRIO UN ERROR AL MOMENTO DE SELECCION DEL ALUMNO", "ADVERTENCIA", JOptionPane.QUESTION_MESSAGE);
@@ -434,20 +479,21 @@ public class NewJFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Registro_Alumno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Registro_Alumno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Registro_Alumno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Registro_Alumno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new NewJFrame().setVisible(true);
+                new Registro_Alumno().setVisible(true);
             }
         });
     }
@@ -474,6 +520,7 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JTable tabalumno;
     private javax.swing.JTextField txtape;
     private javax.swing.JTextField txtdni;
+    private javax.swing.JLabel txtfoto;
     private javax.swing.JLabel txtmsg;
     private javax.swing.JTextField txtnom;
     // End of variables declaration//GEN-END:variables
