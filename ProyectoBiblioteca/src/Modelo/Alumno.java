@@ -35,6 +35,11 @@ public class Alumno extends Persona{
         this.facu = facu;
     }
 
+    public Alumno(String cod_alu) {
+        this.cod_alu = cod_alu;        
+    }
+    
+
     public String getCod_alu() {
         return cod_alu;
     }

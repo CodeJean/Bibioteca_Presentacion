@@ -12,9 +12,10 @@ public class Persona {
     String nombre;
     String apellido;
     String dni;
-    
-    
 
+    public Persona() {
+    }
+    
     public Persona(String code, String nombre, String apellido, String dni) {
         this.code = code;
         this.nombre = nombre;

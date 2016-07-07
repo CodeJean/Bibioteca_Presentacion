@@ -103,7 +103,22 @@ public String UpdateAlu(Alumno a){
     }
     return "LA ACTUALIZACION SE REALIZO CON EXITO";
 }
-    
+//Elimina DELETE Alumno
+public String DeleteAlu(Alumno a){
+    String sql="{call spaDeleteAlu(?)}";
+    try{ //preparar una clase para ejcutar instrucc     
+     CallableStatement st=Conexion.Conecta().prepareCall(sql);
+     //Relacionar parametos con Procedimiento almacenado
+     st.setString(1, a.getCod_alu());
+     ///////// Ejecuta Update //////////    
+     st.execute();    
+     final ResultSet rs = st.getResultSet();
+     
+    }catch(Exception ex){        
+      ex.printStackTrace();
+    }
+    return "SE ELIMINO REGISTRO CON EXITO";
+}    
 
  
  

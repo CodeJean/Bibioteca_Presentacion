@@ -203,6 +203,11 @@ public class NewJFrame extends javax.swing.JFrame {
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("MANTENIMIENTO"));
 
         jButton1.setText("NUEVO");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         btngraba.setText("GRABAR");
         btngraba.addActionListener(new java.awt.event.ActionListener() {
@@ -219,6 +224,11 @@ public class NewJFrame extends javax.swing.JFrame {
         });
 
         btnelimina.setText("ELIMINAR");
+        btnelimina.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btneliminaActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("LISTAR");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -317,6 +327,14 @@ public class NewJFrame extends javax.swing.JFrame {
         }    
         }catch(Exception ex){}    
     }
+    private void limpiar(){
+        btngraba.setEnabled(true);
+        txtnom.setText("");
+        txtape.setText("");
+        txtdni.setText("");
+        this.cbcarrera.setSelectedIndex(0);
+        lbfacu.setText("");
+    }
     
     private void cbcarreraItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbcarreraItemStateChanged
         // Evento Elige la Facultad segun carrera:
@@ -332,14 +350,12 @@ public class NewJFrame extends javax.swing.JFrame {
         // Grabar:        
         Alumno a=new Alumno(txtnom.getText(),txtape.getText(),txtdni.getText(), (String) cbcarrera.getSelectedItem(),lbfacu.getText());
         txtmsg.setText(obj.Graba(a));
-        //Lista alumno
-        listar_alumno();
+        limpiar(); // Limpia jfield
+        listar_alumno(); // lista alumno
     }//GEN-LAST:event_btngrabaActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        
-        // Listar Alumnos 
-        listar_alumno();
+        listar_alumno(); // Listar Alumnos 
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void tabalumnoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabalumnoMousePressed
@@ -358,8 +374,7 @@ public class NewJFrame extends javax.swing.JFrame {
             this.txtnom.setText(tabalumno.getValueAt(fila, 1).toString());
             this.txtape.setText(tabalumno.getValueAt(fila, 2).toString());
             this.txtdni.setText(tabalumno.getValueAt(fila, 3).toString());
-            this.cbcarrera.setSelectedItem(tabalumno.getValueAt(fila, 4).toString());
-            //this.TXTAPELLIDOM.setText(tabalumno.getValueAt(fila, 4).toString());
+            this.cbcarrera.setSelectedItem(tabalumno.getValueAt(fila, 4).toString());         
             this.lbfacu.setText(tabalumno.getValueAt(fila, 5).toString());
             
         } catch (Exception e) {
@@ -369,11 +384,38 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_tabalumnoMousePressed
 
     private void btnmodificaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificaActionPerformed
-        // BTN MODIFICAR:        
-        Alumno a=new Alumno(codAlum,txtnom.getText(),txtape.getText(),txtdni.getText(), (String) cbcarrera.getSelectedItem(),lbfacu.getText());
-        txtmsg.setText(obj.UpdateAlu(a));
-        listar_alumno();
+        // BTN MODIFICAR:
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog(this, "Desea modificar registro", "ADVERTENCIA", dialogButton);
+        
+        if(dialogResult == 0) {            
+            Alumno a=new Alumno(codAlum,txtnom.getText(),txtape.getText(),txtdni.getText(), (String) cbcarrera.getSelectedItem(),lbfacu.getText());
+            txtmsg.setText(obj.UpdateAlu(a));
+            listar_alumno();
+            limpiar();
+        } else {
+        } 
     }//GEN-LAST:event_btnmodificaActionPerformed
+
+    private void btneliminaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminaActionPerformed
+        // BTN ELIMINAR
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog(this, "Desea eliminar registro", "ADVERTENCIA", dialogButton);
+        
+        if(dialogResult == 0) {           
+          Alumno a=new Alumno(codAlum);
+          txtmsg.setText(obj.DeleteAlu(a));
+          listar_alumno();
+          limpiar();
+        } else {          
+        } 
+        
+    }//GEN-LAST:event_btneliminaActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // BTN Nuevo registro:
+        limpiar();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
