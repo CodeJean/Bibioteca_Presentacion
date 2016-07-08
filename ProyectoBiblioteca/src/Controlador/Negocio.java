@@ -5,6 +5,9 @@ package Controlador;
 import java.sql.*;
 import Modelo.*;
 import java.util.*;
+import Vista.Registro_Alumno;
+import java.io.FileInputStream;
+
 public class Negocio {
 // Buscar existencia de foto
     public String ExisteFoto(String codAlum){
@@ -77,11 +80,11 @@ public List<Docente> ListDocente(){
     }
 // grabar alumno
 public String Graba(Alumno a){
-    String sql="{call spadiAlu(?,?,?,?,?)}";
+    String sql="{call spadiAlu(?,?,?,?,?,?)}";
 
     try{ //preparar una clase para ejcutar instrucc
         //sql
-        
+     FileInputStream ArchivoFoto;   
      CallableStatement st=Conexion.Conecta().prepareCall(sql);
      //Relacionar parametos con Procedimiento almacenado
      st.setString(1, a.getNombre());
@@ -89,6 +92,9 @@ public String Graba(Alumno a){
      st.setString(3, a.getDni());
      st.setString(4, a.getCarrera());
      st.setString(5, a.getFacu());
+     System.out.println(""+a.getFoto());
+     ArchivoFoto = new FileInputStream(a.getFoto());        
+     st.setBinaryStream(6,ArchivoFoto);       
      ///////// Probando //////////
     //ResultSet rs=st.executeQuery();
      //rs.next();       

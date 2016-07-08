@@ -28,7 +28,13 @@ public class Alumno extends Persona{
         this.carrera = carrera;
         this.facu = facu;
     }
-    
+
+    public Alumno(String code, String nombre, String apellido, String dni,String carrera, String facu,String foto) {
+        super(code, nombre, apellido, dni, foto);
+        this.carrera = carrera;
+        this.facu = facu;
+    }
+        
     public Alumno(String nombre, String apellido, String dni,String carrera, String facu) {
         super(nombre, apellido, dni);
         this.carrera = carrera;
@@ -102,6 +108,14 @@ public class Alumno extends Persona{
 
     public void setDni(String dni) {
         this.dni = dni;
+    }
+    
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
     
 }

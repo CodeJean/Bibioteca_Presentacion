@@ -12,9 +12,17 @@ public class Persona {
     String nombre;
     String apellido;
     String dni;
-
+    String foto;   
     public Persona() {
     }
+
+    public Persona(String code, String nombre, String apellido, String dni, String foto) {
+        this.code = code;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dni = dni;
+        this.foto = foto;
+    }    
     
     public Persona(String code, String nombre, String apellido, String dni) {
         this.code = code;
@@ -61,6 +69,14 @@ public class Persona {
     public void setDni(String dni) {
         this.dni = dni;
     }   
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
     
     
 }
