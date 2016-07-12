@@ -53,6 +53,30 @@ public class Negocio {
         //System.out.println(sql);
         return lis;
     }
+ //listado de Alumnos/Biblioteca colocar en un arraylist        
+    public List<Alumno> BuscarAlumno(String coda){
+        List<Alumno> lis=new ArrayList();
+        //String sql="select * from Alumno";
+        String sql="select code,nombre,apellido,dni,carrera,facultad,foto\n" +
+                    "from Persona p,Alumno a\n" +
+                    "where code=cod_alu and code=?";
+        try{
+        PreparedStatement st=Conexion.Conecta().prepareStatement(sql);
+        //llevar la consulta a memoria
+        st.setString(1, coda);
+        ResultSet rs=st.executeQuery();
+        //leer filaxfila
+        while(rs.next()){
+           Alumno a=new Alumno(rs.getString(1),
+           rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6));
+           lis.add(a);
+        }
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        //System.out.println(sql);
+        return lis;
+    }
     
 //Listado docentes
 public List<Docente> ListDocente(){
@@ -92,9 +116,15 @@ public String Graba(Alumno a){
      st.setString(3, a.getDni());
      st.setString(4, a.getCarrera());
      st.setString(5, a.getFacu());
-     System.out.println(""+a.getFoto());
-     ArchivoFoto = new FileInputStream(a.getFoto());        
-     st.setBinaryStream(6,ArchivoFoto);       
+     //System.out.println(""+a.getFoto());
+     // Parametro 6 se enviara null o direccion para ser grabado en bd
+     if(a.getFoto()== ""){         
+         st.setBinaryStream(6,null);  
+     }else{
+         ArchivoFoto = new FileInputStream(a.getFoto());        
+        st.setBinaryStream(6,ArchivoFoto); 
+     }
+           
      ///////// Probando //////////
     //ResultSet rs=st.executeQuery();
      //rs.next();       
