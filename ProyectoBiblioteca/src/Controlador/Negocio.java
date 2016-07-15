@@ -26,7 +26,47 @@ public class Negocio {
       ex.printStackTrace();
     }
         return resp;
-}  
+}
+    
+    // LOGIN Alumno / Docente
+    public String LoginPer(String cod,String dni){
+    String sql="{call LoginPer(?,?)}";
+    String resp="";
+    try{ //preparar una clase para ejcutar instrucc
+        //sql
+     CallableStatement st=Conexion.Conecta().prepareCall(sql);
+     //relacionar cada parametro con ep
+     st.setString(1, cod);
+     st.setString(2, dni);
+     ResultSet rs=st.executeQuery();
+     rs.next();
+     resp=rs.getString(1);
+     //st.executeUpdate();
+    }catch(Exception ex){
+      ex.printStackTrace();
+    }
+        return resp;
+}
+    // LOGIN
+    public String LoginEmp(String cod,String dni,String tipo){
+    String sql="{call LoginEmp(?,?,?)}";
+    String resp="";
+    try{ //preparar una clase para ejcutar instrucc
+        //sql
+     CallableStatement st=Conexion.Conecta().prepareCall(sql);
+     //relacionar cada parametro con ep
+     st.setString(1, cod);
+     st.setString(2, dni);
+     st.setString(3, tipo);
+     ResultSet rs=st.executeQuery();
+     rs.next();
+     resp=rs.getString(1);
+     //st.executeUpdate();
+    }catch(Exception ex){
+      ex.printStackTrace();
+    }
+        return resp;
+}
 
     
 //listado de Alumnos/Biblioteca colocar en un arraylist        
