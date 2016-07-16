@@ -18,6 +18,26 @@ public class Docente extends Persona{
         this.especialidad = especialidad;
     }
     
+    public Docente(String cod_doce, String nombre, String apellido, String dni,String especialidad) {
+        super(nombre, apellido, dni);
+        this.cod_doce = cod_doce;
+        this.especialidad = especialidad;
+    }
+    
+    /*public alumno(String cod_alu,String nombre, String apellido, String dni, String carrera, String facu) {
+        super(nombre, apellido, dni);
+        this.cod_alu = cod_alu;
+        this.carrera = carrera;
+        this.facu = facu;
+    }*/
+    
+    public Docente(String nombre, String apellido, String dni,String especialidad) {
+        super(nombre, apellido, dni);
+        this.especialidad = especialidad;
+    }
+    
+    
+    
     public String getCod_doce() {
         return cod_doce;
     }
