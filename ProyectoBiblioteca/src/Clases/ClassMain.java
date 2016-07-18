@@ -1,6 +1,6 @@
 package Clases;
 
-import Principal.frmLoading;
+import Interfaces.frmLoading;
 import javax.swing.UIManager;
 
 
