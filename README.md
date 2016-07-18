@@ -1,3 +1,7 @@
+///Ubicacion de los JAR
+
+https://www.dropbox.com/sh/hp1nyj09l7ouay5/AADo9QRuBSwRpNbL5O8CeArqa?dl=0
+
 # Bibioteca_Presentacion
 Presentación de la aplicación biblioteca
 
@@ -35,4 +39,3 @@ Modificar archivos en Git y actulizar Netbeans
 - (nombre del proyecto)
 - Git / Remote / Pull/ (especificas repositorio) / Next / (Logueo)
 
-Atte. Luis OCAS
