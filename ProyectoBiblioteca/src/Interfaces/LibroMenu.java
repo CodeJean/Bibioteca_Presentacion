@@ -6,6 +6,11 @@
 
 package Interfaces;
 
+import Vista.Registro_Autor;
+import Vista.Registro_Prestamo;
+import Vista.Registro_libro;
+import javax.swing.JFrame;
+
 /**
  *
  * @author dinfo-locas
@@ -17,6 +22,7 @@ public class LibroMenu extends javax.swing.JFrame {
      */
     public LibroMenu() {
         initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**
@@ -94,6 +100,11 @@ public class LibroMenu extends javax.swing.JFrame {
         jMenu2.setText("REPORTES");
 
         jMenuItem6.setText("Solicitudes");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem6);
 
         jMenuItem7.setText("Reservas");
@@ -123,6 +134,13 @@ public class LibroMenu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+        Registro_Autor RegPrestamo=new Registro_Autor();
+        this.jDesktopPane1.add(RegPrestamo);
+        RegPrestamo.show();
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     /**
      * @param args the command line arguments
