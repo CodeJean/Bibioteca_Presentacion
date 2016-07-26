@@ -60,7 +60,7 @@ public class Registro_Alumno extends javax.swing.JFrame {
         btnelimina = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        btnfoto = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         txtcode = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
@@ -293,11 +293,11 @@ public class Registro_Alumno extends javax.swing.JFrame {
 
         jLabel7.setText("Busca la imagen:");
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jButton2.setText("Seleccionar archivo");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnfoto.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        btnfoto.setText("Seleccionar archivo");
+        btnfoto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnfotoActionPerformed(evt);
             }
         });
 
@@ -338,7 +338,7 @@ public class Registro_Alumno extends javax.swing.JFrame {
                                         .addGap(39, 39, 39)
                                         .addComponent(jLabel7)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton2)))))
+                                        .addComponent(btnfoto)))))
                         .addGap(38, 38, 38))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
@@ -371,7 +371,7 @@ public class Registro_Alumno extends javax.swing.JFrame {
                             .addComponent(txtcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8)
                             .addComponent(jLabel7)
-                            .addComponent(jButton2))
+                            .addComponent(btnfoto))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -519,7 +519,7 @@ public class Registro_Alumno extends javax.swing.JFrame {
         limpiar();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnfotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfotoActionPerformed
         // BTN SELECCIONAR IMAGEN:
         FileNameExtensionFilter filtro = new FileNameExtensionFilter("Formatos de Archivos JPEG(*.JPG;*.JPEG)","jpg","jpeg");
         JFileChooser archivo = new JFileChooser();
@@ -534,7 +534,7 @@ public class Registro_Alumno extends javax.swing.JFrame {
             txtfoto.setIcon(new ImageIcon(foto));
         }
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnfotoActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // BTN BUSCAR:
@@ -611,11 +611,11 @@ public class Registro_Alumno extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnelimina;
+    private javax.swing.JButton btnfoto;
     private javax.swing.JButton btngraba;
     private javax.swing.JButton btnmodifica;
     private javax.swing.JComboBox<String> cbcarrera;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

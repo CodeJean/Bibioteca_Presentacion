@@ -7,10 +7,7 @@ public class Docente extends Persona{
     private int nro;
     private String especialidad;
 
-    public Docente() {
-        super(null, null, null, null);
-    }
-
+    
     public Docente(String cod_doce, int nro, String especialidad, String code, String nombre, String apellido, String dni) {
         super(code, nombre, apellido, dni);
         this.cod_doce = cod_doce;
@@ -18,10 +15,23 @@ public class Docente extends Persona{
         this.especialidad = especialidad;
     }
     
-    public Docente(String cod_doce, String nombre, String apellido, String dni,String especialidad) {
-        super(nombre, apellido, dni);
-        this.cod_doce = cod_doce;
+    //agregar docente
+    public Docente(String code, String nombre, String apellido, String dni,String especialidad,String foto) {
+        super(code,nombre, apellido, dni,foto);
+        //this.cod_doce = cod_doce;
         this.especialidad = especialidad;
+    }
+    
+    //listar docentes
+    public Docente(String cod_doce,String nombre, String apellido, String dni,String especialidad) {
+        super(nombre, apellido, dni);
+        this.cod_doce= cod_doce;
+        this.especialidad = especialidad;
+    }
+    
+    //para eliminar
+    public Docente(String cod_doce) {
+        this.cod_doce = cod_doce;        
     }
     
     /*public alumno(String cod_alu,String nombre, String apellido, String dni, String carrera, String facu) {
@@ -31,10 +41,7 @@ public class Docente extends Persona{
         this.facu = facu;
     }*/
     
-    public Docente(String nombre, String apellido, String dni,String especialidad) {
-        super(nombre, apellido, dni);
-        this.especialidad = especialidad;
-    }
+    
     
     
     

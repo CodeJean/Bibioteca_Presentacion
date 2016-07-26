@@ -7,6 +7,7 @@ import Modelo.*;
 import java.util.*;
 import Vista.Registro_Alumno;
 import java.io.FileInputStream;
+import javax.print.Doc;
 
 public class Negocio {
 // Buscar existencia de foto
@@ -93,6 +94,8 @@ public class Negocio {
         //System.out.println(sql);
         return lis;
     }
+    
+
  //listado de Alumnos/Biblioteca colocar en un arraylist        
     public List<Alumno> BuscarAlumno(String coda){
         List<Alumno> lis=new ArrayList();
@@ -117,31 +120,7 @@ public class Negocio {
         //System.out.println(sql);
         return lis;
     }
-    
-//Listado docentes
-public List<Docente> ListDocente(){
-        List<Docente> lis=new ArrayList();
-        //String sql="select * from Alumno";
-        String sql="select *\n" +
-        "from Docente d, Persona p\n" +
-        "where d.cod_doce=p.code";
-        try{
-        PreparedStatement st=Conexion.Conecta()
-                .prepareStatement(sql);
-        //llevar la consulta a memoria
-        ResultSet rs=st.executeQuery();
-        //leer filaxfila
-        while(rs.next()){
-           Docente d=new Docente(rs.getString(1),
-           rs.getInt(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7));
-           lis.add(d);
-        }
-        }catch(Exception ex){
-            ex.printStackTrace();
-        }
-        //System.out.println(sql);
-        return lis;
-    }
+
 // grabar alumno
 public String Graba(Alumno a){
     String sql="{call spadiAlu(?,?,?,?,?,?)}";
@@ -212,9 +191,7 @@ public String DeleteAlu(Alumno a){
       ex.printStackTrace();
     }
     return "SE ELIMINO REGISTRO CON EXITO";
-}  
-
-   
+}
  
 }   
 

@@ -14,6 +14,7 @@ public class Alumno extends Persona{
     private String facu;
     
     
+    //para la lista
     public Alumno(String cod_alu, int nro, String carrera, String facu, String code, String nombre, String apellido, String dni) {
         super(code, nombre, apellido, dni);
         this.cod_alu = cod_alu;
@@ -29,6 +30,7 @@ public class Alumno extends Persona{
         this.facu = facu;
     }
 
+    //para boton agregar
     public Alumno(String code, String nombre, String apellido, String dni,String carrera, String facu,String foto) {
         super(code, nombre, apellido, dni, foto);
         this.carrera = carrera;
