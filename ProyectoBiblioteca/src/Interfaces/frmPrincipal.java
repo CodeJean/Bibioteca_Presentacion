@@ -1,6 +1,10 @@
 package Interfaces;
 
+import Vista.RegAlumno;
 import Vista.RegDocente;
+import Vista.Registro_Autor;
+import Vista.Registro_Prestamo;
+import Vista.Registro_libro;
 
 public class frmPrincipal extends javax.swing.JFrame {
 
@@ -18,33 +22,41 @@ public class frmPrincipal extends javax.swing.JFrame {
         panelEscritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        menuPrestamos = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         menuRegDocentes = new javax.swing.JMenuItem();
         menuRegAlumnos = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
+        menuRegAutor = new javax.swing.JMenuItem();
+        menuRegLibros = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setExtendedState(6);
 
         javax.swing.GroupLayout panelEscritorioLayout = new javax.swing.GroupLayout(panelEscritorio);
         panelEscritorio.setLayout(panelEscritorioLayout);
         panelEscritorioLayout.setHorizontalGroup(
             panelEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 738, Short.MAX_VALUE)
+            .addGap(0, 442, Short.MAX_VALUE)
         );
         panelEscritorioLayout.setVerticalGroup(
             panelEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 435, Short.MAX_VALUE)
+            .addGap(0, 284, Short.MAX_VALUE)
         );
 
         jMenu1.setText("Archivo");
 
-        jMenuItem1.setText("Prestamos");
-        jMenu1.add(jMenuItem1);
+        menuPrestamos.setText("Prestamos");
+        menuPrestamos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuPrestamosActionPerformed(evt);
+            }
+        });
+        jMenu1.add(menuPrestamos);
 
         jMenuItem2.setText("Reservas");
         jMenu1.add(jMenuItem2);
@@ -75,6 +87,22 @@ public class frmPrincipal extends javax.swing.JFrame {
         jMenuItem6.setText("Empleados");
         jMenu2.add(jMenuItem6);
 
+        menuRegAutor.setText("Autor");
+        menuRegAutor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuRegAutorActionPerformed(evt);
+            }
+        });
+        jMenu2.add(menuRegAutor);
+
+        menuRegLibros.setText("Libros");
+        menuRegLibros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuRegLibrosActionPerformed(evt);
+            }
+        });
+        jMenu2.add(menuRegLibros);
+
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Historial");
@@ -90,13 +118,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(panelEscritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(panelEscritorio)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelEscritorio, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(panelEscritorio)
         );
 
         pack();
@@ -111,8 +137,28 @@ public class frmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_menuRegDocentesActionPerformed
 
     private void menuRegAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRegAlumnosActionPerformed
-        // TODO add your handling code here:
+        RegAlumno alumno = new RegAlumno();
+        panelEscritorio.add(alumno);
+        alumno.show();
     }//GEN-LAST:event_menuRegAlumnosActionPerformed
+
+    private void menuRegAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRegAutorActionPerformed
+        Registro_Autor autor = new Registro_Autor();
+        panelEscritorio.add(autor);
+        autor.show();
+    }//GEN-LAST:event_menuRegAutorActionPerformed
+
+    private void menuRegLibrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRegLibrosActionPerformed
+        Registro_libro libro = new Registro_libro();
+        panelEscritorio.add(libro);
+        libro.show();
+    }//GEN-LAST:event_menuRegLibrosActionPerformed
+
+    private void menuPrestamosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuPrestamosActionPerformed
+        Registro_Prestamo prestamo = new Registro_Prestamo();
+        panelEscritorio.add(prestamo);
+        prestamo.show();
+    }//GEN-LAST:event_menuPrestamosActionPerformed
 
     
     public static void main(String args[]) {
@@ -154,13 +200,15 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem menuPrestamos;
     private javax.swing.JMenuItem menuRegAlumnos;
+    private javax.swing.JMenuItem menuRegAutor;
     private javax.swing.JMenuItem menuRegDocentes;
+    private javax.swing.JMenuItem menuRegLibros;
     private javax.swing.JDesktopPane panelEscritorio;
     // End of variables declaration//GEN-END:variables
 }

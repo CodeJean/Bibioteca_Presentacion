@@ -2,6 +2,20 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/jeancarlos/Documents/GitHub/Bibioteca_Presentacion/ProyectoBiblioteca/src/Interfaces/frmLoading.java</file>
+            <file>file:/C:/Users/jeancarlos/Documents/GitHub/Bibioteca_Presentacion/ProyectoBiblioteca/src/Vista/RegAlumno.java</file>
+            <file>file:/C:/Users/jeancarlos/Documents/GitHub/Bibioteca_Presentacion/ProyectoBiblioteca/src/Interfaces/LibroLoguin.java</file>
+            <file>file:/C:/Users/jeancarlos/Documents/GitHub/Bibioteca_Presentacion/ProyectoBiblioteca/src/Interfaces/LibroMenu.java</file>
+            <file>file:/C:/Users/jeancarlos/Documents/GitHub/Bibioteca_Presentacion/ProyectoBiblioteca/src/Interfaces/Login.java</file>
+            <file>file:/C:/Users/jeancarlos/Documents/GitHub/Bibioteca_Presentacion/ProyectoBiblioteca/src/Vista/RegDocente.java</file>
+            <file>file:/C:/Users/jeancarlos/Documents/GitHub/Bibioteca_Presentacion/ProyectoBiblioteca/src/Vista/Registro_Alumno.java</file>
+            <file>file:/C:/Users/jeancarlos/Documents/GitHub/Bibioteca_Presentacion/ProyectoBiblioteca/src/Vista/Registro_Autor.java</file>
+            <file>file:/C:/Users/jeancarlos/Documents/GitHub/Bibioteca_Presentacion/ProyectoBiblioteca/src/Vista/Registro_libro.java</file>
+            <file>file:/C:/Users/jeancarlos/Documents/GitHub/Bibioteca_Presentacion/ProyectoBiblioteca/src/Vista/Registro_Prestamo.java</file>
+            <file>file:/C:/Users/jeancarlos/Documents/GitHub/Bibioteca_Presentacion/ProyectoBiblioteca/src/Controlador/Prueba.java</file>
+            <file>file:/C:/Users/jeancarlos/Documents/GitHub/Bibioteca_Presentacion/ProyectoBiblioteca/src/Interfaces/LibroBienvenida.java</file>
+            <file>file:/C:/Users/jeancarlos/Documents/GitHub/Bibioteca_Presentacion/ProyectoBiblioteca/src/Interfaces/frmPrincipal.java</file>
+        </group>
     </open-files>
 </project-private>

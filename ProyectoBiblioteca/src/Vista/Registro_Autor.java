@@ -44,6 +44,10 @@ public class Registro_Autor extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
 
+        setClosable(true);
+        setMaximizable(true);
+        setResizable(true);
+
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("DATOS DEL AUTOR"));
         jPanel1.setOpaque(false);
 

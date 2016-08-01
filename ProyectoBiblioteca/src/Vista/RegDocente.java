@@ -73,7 +73,6 @@ public class RegDocente extends javax.swing.JInternalFrame {
         btnbuscar = new javax.swing.JButton();
 
         setClosable(true);
-        setIconifiable(true);
         setMaximizable(true);
 
         jPanel1.setBackground(new java.awt.Color(102, 153, 255));
