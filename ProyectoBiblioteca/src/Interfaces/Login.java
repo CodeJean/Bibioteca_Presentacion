@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 public class Login extends javax.swing.JFrame {
     
      Negocio obj=new Negocio();
-     
+  
     public Login() {
         initComponents();
         setLocationRelativeTo(null);
@@ -196,7 +196,7 @@ public class Login extends javax.swing.JFrame {
         //0 = administrador
         //1 = Usuario
         //2 = Cliente
-        int tipo = cbtipo.getSelectedIndex();
+        int tipo = cbtipo.getSelectedIndex();        
         String RESPUES;
         if(tipo == 0){
             RESPUES = obj.LoginEmp(txtuser.getText(),String.valueOf(txtpass.getPassword()) ,String.valueOf(tipo));
@@ -204,7 +204,8 @@ public class Login extends javax.swing.JFrame {
             if (RESPUES.equals("0")) {                 
                 JOptionPane.showMessageDialog(null, "USUARIO O CLAVE INCORRECTA, INTENTE NUEVAMENTE", "ADVERTENCIA", JOptionPane.QUESTION_MESSAGE);
             } else {
-                LibroMenu menu= new LibroMenu(); // Frame general con todas las opciones
+                frmPrincipal menu= new frmPrincipal(); // Frame general con todas las opciones
+                menu.codemp=txtuser.getText(); // mando codigo a frame Principal
                 menu.setVisible(true);
                 this.setVisible(false);   
             }            

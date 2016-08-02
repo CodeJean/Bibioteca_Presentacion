@@ -116,5 +116,30 @@ public String DeleteLibro(Libro a){
     }
     return "SE ELIMINO REGISTRO CON EXITO";
 }
+//listado de Libros colocar en un arraylist        
+    public List<Libro> BuscarLibroCodigo(String coda){
+        List<Libro> lis=new ArrayList();
+        //String sql="select * from Alumno";
+        String sql="select l.cod_libro,titulo,materia,estado,l.cod_autor,nombre_autor,apellido_autor,nacionalidad\n" +
+        "from Libro l, Autor a\n" +
+        "where l.cod_autor=a.cod_autor and l.cod_libro=?";
+        try{
+        PreparedStatement st=Conexion.Conecta().prepareStatement(sql);
+        //llevar la consulta a memoria
+        st.setString(1, coda);
+        ResultSet rs=st.executeQuery();
+        //leer filaxfila
+        while(rs.next()){
+           Libro a=new Libro(rs.getString(1),
+           rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),
+           rs.getString(6),rs.getString(7),rs.getString(8));
+           lis.add(a);
+        }
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        //System.out.println(sql);
+        return lis;
+    }
     
 }

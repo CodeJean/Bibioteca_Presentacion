@@ -12,6 +12,11 @@ public class Libro extends Autor{
 
     public Libro() {
     }
+    
+    public Libro(String cod_libro) {
+        this.cod_libro = cod_libro;
+    }
+    
 
     public Libro(String cod_libro, String titulo_libro, String materia, String estado, String cod_autor, String nombre_autor, String apellido_autor, String nacionalidad) {
         super(cod_autor, nombre_autor, apellido_autor, nacionalidad);
