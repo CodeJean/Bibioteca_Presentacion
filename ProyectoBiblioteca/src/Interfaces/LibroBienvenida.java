@@ -62,7 +62,7 @@ public class LibroBienvenida extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bntInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntInicioActionPerformed
-        Login ILA = new Login();
+        LibroLoguin ILA = new LibroLoguin();
         ILA.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_bntInicioActionPerformed

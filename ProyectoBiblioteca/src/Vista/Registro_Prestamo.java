@@ -36,7 +36,9 @@ public class Registro_Prestamo extends javax.swing.JInternalFrame {
     int dias;
         
     public Registro_Prestamo() {
+        
         initComponents();
+        
     }
 
     /**

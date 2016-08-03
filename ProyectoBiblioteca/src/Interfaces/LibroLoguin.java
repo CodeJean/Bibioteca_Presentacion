@@ -188,8 +188,9 @@ public class LibroLoguin extends javax.swing.JFrame {
             if (RESPUES.equals("0")) {                 
                 JOptionPane.showMessageDialog(null, "USUARIO O CLAVE INCORRECTA, INTENTE NUEVAMENTE", "ADVERTENCIA", JOptionPane.QUESTION_MESSAGE);
             } else {
-                LibroMenu menu_adm= new LibroMenu(); // Frame general con todas las opciones
+                frmPrincipal menu_adm= new frmPrincipal(); // Frame general con todas las opciones
                 menu_adm.setVisible(true);
+                menu_adm.codemp=txtUser.getText();
                 this.setVisible(false);   
             }            
         }
@@ -199,8 +200,9 @@ public class LibroLoguin extends javax.swing.JFrame {
             if (RESPUES.equals("0")) {                 
                 JOptionPane.showMessageDialog(null, "USUARIO O CLAVE INCORRECTA, INTENTE NUEVAMENTE", "ADVERTENCIA", JOptionPane.QUESTION_MESSAGE);
             } else {
-                LibroMenu menu_user= new LibroMenu(); // Frame general con todas las opciones
+                frmPrincipal menu_user= new frmPrincipal(); // Frame general con todas las opciones
                 menu_user.setVisible(true);
+                menu_user.codemp=txtUser.getText();
                 this.setVisible(false);   
             }
         }
@@ -210,9 +212,11 @@ public class LibroLoguin extends javax.swing.JFrame {
             if (RESPUES.equals("0")) {                 
                 JOptionPane.showMessageDialog(null, "USUARIO O CLAVE INCORRECTA, INTENTE NUEVAMENTE", "ADVERTENCIA", JOptionPane.QUESTION_MESSAGE);
             } else {
-                LibroMenu menu_lect= new LibroMenu(); // Abrir otro Menu
+                frmPrincipal menu_lect= new frmPrincipal(); // Abrir otro Menu
                 menu_lect.setVisible(true);
-                this.setVisible(false);   
+                menu_lect.codemp=txtUser.getText();
+                this.setVisible(false);
+                
             }
         }
     }//GEN-LAST:event_btnIngresarActionPerformed
